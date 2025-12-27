@@ -1,0 +1,219 @@
+Strona Michała Zwolaka
+🎨 PALETA KOLORÓW (UX/UI)
+Wariant 1 (Rekomendowany - Energia i Determinacja):
+
+Kolor główny: #0A0E27 (granatowa czerń)
+Kolor akcentowy: #FF2D55 (intensywna czerwień)
+Kolor wsparcia: #1A1A1A (głęboka czerń)
+Tło jasne: #FFFFFF (biel)
+Tekst na ciemnym: #F5F5F5 (jasnoszary)
+
+Wariant 2 (Alternatywny - Natura i Wytrzymałość):
+
+Kolor główny: #0D1B2A (ciemny niebieski)
+Kolor akcentowy: #00D9A3 (ciemna zieleń/turkus)
+Kolor wsparcia: #1B263B (granatowy)
+Akcent ciepły: #E63946 (czerwień dla CTA)
+Tło jasne: #FFFFFF
+
+Zastosowanie:
+
+Hero section: ciemne tło + biały tekst + czerwone akcenty
+Sekcje naprzemiennie: ciemne/jasne dla kontrastu
+Przyciski CTA: czerwień
+Liczby/statystyki: jaskrawy akcent (czerwień/zieleń)
+
+
+📐 STRUKTURA STRONY
+NAWIGACJA (sticky)
+Logo/Inicjały MZ | O mnie | Moje Wyzwania | Wsparcie | Kontakt
+
+📝 COPY I SEKCJE
+HERO SECTION
+Tło: Ciemne z subtelnym gradientem, zdjęcie Michała w akcji (semi-transparent overlay)
+Headline:
+PRZESUWAM GRANICE.
+DLA SIEBIE. DLA INNYCH.
+Subheadline:
+Sportowiec wytrzymałościowy | Działacz charytatywny | Never Quit
+CTA Button:
+Zobacz Moje Wyzwania →
+Statystyki (liczniki animowane):
+10 294    |    84 km    |    500 km    |    18 000+ zł
+burpees   |    ultra    |    rower     |    zebrane
+w 24h     |    maraton  |    non-stop  |    na cel
+
+O MNIE
+Nagłówek:
+KIM JESTEM
+Copy:
+Jestem Michał Zwolak — sportowcem wytrzymałościowym i pasjonatem ekstremalnych wyzwań, 
+dla którego granice istnieją po to, by je przesuwać.
+
+Od lat konsekwentnie realizuję projekty łączące sport z działalnością charytatywną. 
+Każde wyzwanie wymaga nie tylko siły fizycznej, ale przede wszystkim odporności 
+psychicznej, dyscypliny i determinacji.
+
+MOJA FILOZOFIA
+
+Nie szukam dróg na skróty. Wierzę w proces, konsekwencję i pracę wykonaną wtedy, 
+gdy najbardziej się nie chce. Sport traktuję jako narzędzie do budowania charakteru 
+i mentalnej wytrzymałości.
+
+Moje działania to połączenie sportowej pasji z misją społeczną — inspiruję innych 
+do wychodzenia poza strefę komfortu i pokazuję, że każdy może więcej, niż myśli.
+Zdjęcie: Portret Michała (pełnoekranowe lub half-screen)
+
+MOJE WYZWANIA
+Nagłówek:
+WYZWANIA, KTÓRE PODJĄŁEM
+Intro:
+Każde z moich wyzwań to połączenie ekstremalnego wysiłku ze wsparciem 
+potrzebujących. Bo sport ma sens, gdy służy czemuś większemu.
+Format: Karty wyzwań (grid layout)
+KARTA 1: BURPEE CHALLENGE
+🏋️ BURPEE CHALLENGES
+
+- 10 294 burpees w 24 godziny
+  → Zbiórka na rehabilitację małej Mai (18 000+ zł)
+  
+- 6 000+ burpees w 12 godzin
+  → Nieoficjalny rekord Guinnessa
+  
+- 4 000 burpees w 7h 56min
+  → Wsparcie dla chorego Bartka
+  
+- 3 000 burpees
+  → Pierwsza akcja charytatywna
+Status badge: ZREALIZOWANE
+KARTA 2: BIEGI ULTRA
+🏃 ULTRAMARATONY I MARATONY
+
+- Ultra 84 km
+  → Ekstremalny dystans wytrzymałościowy
+  
+- Maraton w kamizelce 10 kg
+  → Test siły i woli
+  
+- Półmaraton w kamizelce 20 kg
+  → Podwójne obciążenie, podwójna determinacja
+  
+- Wielokrotne starty maratońskie
+  → Konsekwentne budowanie formy
+Status badge: W TRAKCIE
+KARTA 3: WYZWANIA KOLARSKIE
+🚴 DŁUGODYSTANSOWE PRZEJAZDY
+
+- 480-500 km non-stop
+  → Przejazd nad morze rowerem
+  
+- Projekty sportowo-rekreacyjne
+  → Promowanie aktywności i wytrwałości
+Status badge: CYKLICZNE
+KARTA 4: KETTLEBELL CHALLENGES
+💪 TRENING SIŁOWO-WYTRZYMAŁOŚCIOWY
+
+- Rekordy objętości i czasu pracy z kettlami
+- Konsekwentne podnoszenie poprzeczki
+- Przygotowania do kolejnych projektów
+Status badge: ROZWÓJ
+CTA:
+NASTĘPNE WYZWANIE W PLANACH — ZOSTAŃ CZĘŚCIĄ TEGO!
+[Dowiedz się więcej →]
+
+WSPÓŁPRACA/WSPARCIE
+Nagłówek:
+JAK MOŻESZ MNIę WESPRZEĆ
+Copy:
+Moje wyzwania to nie tylko sport — to realne wsparcie dla ludzi, 
+którzy potrzebują pomocy. Możesz dołączyć do tej misji.
+3 boksy:
+BOX 1:
+💰 WSPARCIE FINANSOWE
+Każde wyzwanie łączę ze zbiórką charytatywną. 
+Twoja pomoc trafia do konkretnych osób.
+
+[Aktualne zbiórki →]
+BOX 2:
+🤝 WSPÓŁPRACA BIZNESOWA
+Szukasz partnera do akcji CSR lub sportowego 
+ambasadora? Porozmawiajmy.
+
+[Skontaktuj się →]
+BOX 3:
+📣 PROMUJ AKCJĘ
+Udostępnij, obserwuj, inspiruj innych. 
+Każdy głos ma znaczenie.
+
+[Social media →]
+
+SEKCJA IMPACT (opcjonalna)
+Nagłówek:
+RAZEM ZROBILIŚMY TO
+Statystyki:
+4 zbiórki zrealizowane
+18 000+ zł zebrane
+3 dzieci wspartych
+∞ barier przełamanych
+
+KONTAKT
+Nagłówek:
+SKONTAKTUJMY SIĘ
+Copy:
+Masz pytania? Chcesz współpracować? A może szukasz motywacji do własnego wyzwania?
+Formularz:
+[Imię i nazwisko]
+[Email]
+[Wiadomość]
+[WYŚLIJ →]
+Alternatywnie:
+📧 Email: [email]
+📱 Instagram: [@handle]
+📱 Facebook: [link]
+
+🎯 WYTYCZNE PROJEKTOWE DLA AI BUILDERA
+Styl ogólny:
+
+Minimalistyczny, mocny, męski design
+Bold typography dla nagłówków (np. Montserrat Bold, Oswald)
+Clean sans-serif dla body (np. Inter, Open Sans)
+Dużo white space — niech treść oddycha
+Hero images — Michał w akcji (running, burpees, cycling)
+
+Elementy wizualne:
+
+Zdjęcia w skali szarości z czerwonymi akcentami (np. na CTA)
+Ikony outline style (minimalistyczne, cienka linia)
+Animowane liczniki przy statystykach
+Parallax scrolling dla hero section (opcjonalnie)
+Progress bars dla ongoing challenges
+
+Mobile-first:
+
+Stack wszystkich sekcji na mobile
+Duże, czytelne przyciski CTA
+Touch-friendly navigation
+
+Mikro-interakcje:
+
+Hover effects na kartach wyzwań
+Smooth scroll między sekcjami
+Fade-in animations przy scrollowaniu
+
+
+🚀 FUNKCJONALNOŚCI
+
+✅ Responsywność (mobile/tablet/desktop)
+✅ Formularz kontaktowy z walidacją
+✅ Integracja z social media
+✅ SEO-friendly structure
+✅ Fast loading (optymalizacja obrazów)
+⭕ (Opcjonalnie) Blog/aktualności
+⭕ (Opcjonalnie) Galeria zdjęć z wyzwań
+⭕ (Opcjonalnie) Licznik live podczas aktywnej zbiórki
+
+
+📱 CALL-TO-ACTION HIERARCHY
+Primary CTA: "Wesprzyj Akcję" (czerwony, prominent)
+Secondary CTA: "Moje Wyzwania" (outline, biały na ciemnym)
+Tertiary CTA: "Kontakt" (link style)
