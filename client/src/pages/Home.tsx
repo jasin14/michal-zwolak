@@ -23,7 +23,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import michalImage from "../assets/Michal-hero.jpg";
-import michalAboutMe from "../assets/Michal-aboutme.jpg";
+import michalAboutMe from "../assets/Michal-3.jpg";
 import charity1 from "../assets/Michal-charity-1.jpg";
 import charity2 from "../assets/Michal-charity-2.jpg";
 import charity3 from "../assets/Michal-charity-3.jpg";
@@ -42,6 +42,7 @@ export default function Home() {
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       message: "",
     },
   });
@@ -248,14 +249,17 @@ export default function Home() {
       </section>
 
       {/* CHARITY CHALLENGES */}
-      <section id="charity" className="py-24 md:py-32 bg-[#0a0e27] relative overflow-hidden">
+      <section
+        id="charity"
+        className="py-24 md:py-32 bg-[#0a0e27] relative overflow-hidden"
+      >
         <div className="container mx-auto px-4">
-          <SectionHeading 
-            title="Wyzwania Charytatywne" 
-            subtitle="Sport dla wyższego celu" 
+          <SectionHeading
+            title="Wyzwania Charytatywne"
+            subtitle="Sport dla wyższego celu"
             alignment="center"
           />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
@@ -263,36 +267,36 @@ export default function Home() {
                 date: "19.07.2020",
                 raised: "2 tyś+ zł",
                 img: charity1,
-                delay: 0.1
+                delay: 0.1,
               },
               {
                 title: "4.001 Burpee",
                 date: "08.03.2021",
                 raised: "4 tyś+ zł",
                 img: charity2,
-                delay: 0.2
+                delay: 0.2,
               },
               {
                 title: "6.061 Burpee w 12h",
                 date: "07.12.2021",
                 raised: "5.8 tyś+ zł",
                 img: charity3,
-                delay: 0.3
+                delay: 0.3,
               },
               {
                 title: "10.294 Burpee w 24h",
                 date: "05.12.2022",
                 raised: "20 tyś+ zł",
                 img: charity4,
-                delay: 0.4
+                delay: 0.4,
               },
               {
                 title: "8.040 Burpee w 20h",
                 date: "05.12.2025",
                 raised: "43 tyś+ zł",
                 img: charity5,
-                delay: 0.5
-              }
+                delay: 0.5,
+              },
             ].map((challenge, i) => (
               <motion.div
                 key={i}
@@ -302,18 +306,24 @@ export default function Home() {
                 transition={{ delay: challenge.delay }}
                 className="group relative aspect-[4/5] overflow-hidden bg-card border border-white/5"
               >
-                <img 
-                  src={challenge.img} 
+                <img
+                  src={challenge.img}
                   alt={challenge.title}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80" />
                 <div className="absolute bottom-0 left-0 p-8 w-full">
-                  <p className="text-primary font-bold text-xs uppercase tracking-widest mb-2">{challenge.date}</p>
-                  <h3 className="text-2xl font-display font-bold text-white uppercase mb-2">{challenge.title}</h3>
+                  <p className="text-primary font-bold text-xs uppercase tracking-widest mb-2">
+                    {challenge.date}
+                  </p>
+                  <h3 className="text-2xl font-display font-bold text-white uppercase mb-2">
+                    {challenge.title}
+                  </h3>
                   <div className="flex items-center gap-2">
                     <Heart className="w-4 h-4 text-primary fill-primary" />
-                    <span className="text-white font-bold">Zebrane: {challenge.raised}</span>
+                    <span className="text-white font-bold">
+                      Zebrane: {challenge.raised}
+                    </span>
                   </div>
                 </div>
               </motion.div>
@@ -365,21 +375,27 @@ export default function Home() {
               delay={0.4}
             />
           </div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="mt-16 text-center"
           >
             <div className="inline-block p-12 border border-dashed border-primary/30 bg-primary/5">
-              <h3 className="text-3xl font-display font-bold text-white uppercase mb-4 italic">Następne wyzwanie?</h3>
+              <h3 className="text-3xl font-display font-bold text-white uppercase mb-4 italic">
+                Następne wyzwanie?
+              </h3>
               <p className="text-gray-400 mb-8 max-w-md mx-auto">
-                Granice są po to, by je przesuwać. Kolejny projekt jest już w fazie planowania. 
-                Chcesz stać się częścią tej historii?
+                Granice są po to, by je przesuwać. Kolejny projekt jest już w
+                fazie planowania. Chcesz stać się częścią tej historii?
               </p>
               <button
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="px-8 py-4 bg-primary text-white font-bold uppercase tracking-wider hover:bg-red-600 transition-all"
               >
                 Bądź na bieżąco
@@ -410,9 +426,9 @@ export default function Home() {
               },
               {
                 icon: TrendingUp,
-                title: "Motywacja & Prelekcje",
-                desc: "Chcesz zmotywować swój zespół? Opowiem o tym, jak przesuwać granice niemożliwego w życiu i biznesie.",
-                action: "Zaproś mnie",
+                title: "Trenuj ze mną",
+                desc: "Chcesz przesuwać swoje granice lub pracować nad fizycznością? Zapraszam, pomogę Ci w realizacji Twoich celów.",
+                action: "Darmowa konsultacja",
               },
             ].map((box, i) => (
               <motion.div
@@ -454,11 +470,10 @@ export default function Home() {
               <SectionHeading title="Kontakt" subtitle="Napisz do mnie" />
               <p className="text-gray-400 text-lg mb-8 leading-relaxed">
                 Masz pomysł na wyzwanie? Chcesz nawiązać współpracę? A może po
-                prostu chcesz pogadać o treningu?
+                prostu chcesz rozwijać się fizycznie razem ze mną?
                 <br />
                 <br />
-                Wypełnij formularz, a ja postaram się odpisać w przerwie między
-                treningami.
+                Wypełnij formularz, a ja się do Ciebie odezwę w ciągu 24 godzin.
               </p>
 
               <div className="space-y-4">
@@ -472,15 +487,20 @@ export default function Home() {
                   </span>
                 </a>
                 <div className="flex gap-4 mt-8">
-                  {[Instagram, Facebook, Linkedin].map((Icon, i) => (
-                    <a
-                      key={i}
-                      href="#"
-                      className="w-12 h-12 bg-background border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all"
-                    >
-                      <Icon size={20} />
-                    </a>
-                  ))}
+                  <a
+                    href="https://www.instagram.com/michalzwolak87/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-background border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all"
+                  >
+                    <Instagram size={20} />
+                  </a>
+                  <a
+                    href="#"
+                    className="w-12 h-12 bg-background border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all"
+                  >
+                    <Linkedin size={20} />
+                  </a>
                 </div>
               </div>
             </div>
@@ -521,6 +541,27 @@ export default function Home() {
                   {form.formState.errors.email && (
                     <p className="text-primary text-xs mt-1">
                       {form.formState.errors.email.message}
+                    </p>
+                  )}
+                  {form.formState.errors.root && (
+                    <p className="text-primary text-xs mt-1">
+                      {form.formState.errors.root.message}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+                    Numer Telefonu (Opcjonalnie)
+                  </label>
+                  <input
+                    {...form.register("phone")}
+                    className="w-full bg-card border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                    placeholder="+48 123 456 789"
+                  />
+                  {form.formState.errors.phone && (
+                    <p className="text-primary text-xs mt-1">
+                      {form.formState.errors.phone.message}
                     </p>
                   )}
                 </div>
