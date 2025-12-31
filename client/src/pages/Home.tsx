@@ -7,22 +7,28 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { insertMessageSchema, type InsertMessage } from "@shared/schema";
 import { motion, useScroll, useTransform } from "framer-motion";
 import CountUp from "react-countup";
-import { 
-  ArrowRight, 
-  Dumbbell, 
-  Mountain, 
-  Bike, 
-  Trophy, 
-  Heart, 
-  TrendingUp, 
+import {
+  ArrowRight,
+  Dumbbell,
+  Mountain,
+  Bike,
+  Trophy,
+  Heart,
+  TrendingUp,
   Users,
   Instagram,
   Facebook,
   Linkedin,
   Mail,
-  CheckCircle2
+  CheckCircle2,
 } from "lucide-react";
-import michalImage from "../assets/michal.jpg";
+import michalImage from "../assets/Michal-hero.jpg";
+import michalAboutMe from "../assets/Michal-aboutme.jpg";
+import charity1 from "../assets/Michal-charity-1.jpg";
+import charity2 from "../assets/Michal-charity-2.jpg";
+import charity3 from "../assets/Michal-charity-3.jpg";
+import charity4 from "../assets/Michal-charity-4.jpg";
+import charity5 from "../assets/Michal-charity-5.jpg";
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -30,27 +36,27 @@ export default function Home() {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   const { mutate, isPending } = useContact();
-  
+
   const form = useForm<InsertMessage>({
     resolver: zodResolver(insertMessageSchema),
     defaultValues: {
       name: "",
       email: "",
-      message: ""
-    }
+      message: "",
+    },
   });
 
   const onSubmit = (data: InsertMessage) => {
     mutate(data, {
-      onSuccess: () => form.reset()
+      onSuccess: () => form.reset(),
     });
   };
 
   const stats = [
-    { label: "Wykonanych Burpees", value: 10294, suffix: "" },
-    { label: "Bieg Ultra (km)", value: 84, suffix: " km" },
-    { label: "Rowerem non-stop", value: 500, suffix: " km" },
-    { label: "Zebrane środki", value: 18000, suffix: "+ zł" },
+    { label: "Wykonanych Burpees", value: 31396, suffix: "" },
+    { label: "Bieg Ultra (km)", value: 641, suffix: " km" },
+    { label: "Rowerem", value: 500, suffix: " km" },
+    { label: "Zebrane środki", value: 75000, suffix: "+ zł" },
   ];
 
   return (
@@ -60,15 +66,12 @@ export default function Home() {
       {/* HERO SECTION */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image with Parallax */}
-        <motion.div 
-          style={{ y: y1 }}
-          className="absolute inset-0 z-0"
-        >
+        <motion.div style={{ y: y1 }} className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10" />
-          <img 
-            src={michalImage} 
-            alt="Michał Zwolak Hero" 
+          <img
+            src={michalImage}
+            alt="Michał Zwolak Hero"
             className="w-full h-full object-cover object-center scale-105"
           />
         </motion.div>
@@ -81,31 +84,44 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-4xl"
           >
-            <h2 className="text-primary font-bold tracking-[0.3em] uppercase mb-4 text-sm md:text-base">
+            {/* <h2 className="text-primary font-bold tracking-[0.3em] uppercase mb-4 text-sm md:text-base">
               Sportowiec Wytrzymałościowy & Działacz
-            </h2>
+            </h2> */}
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white uppercase leading-[0.9] mb-8">
-              Przesuwam <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-rose-600">Granice.</span><br/>
-              Dla Siebie.<br/>
+              Przesuwam <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-rose-600">
+                Granice.
+              </span>
+              <br />
+              Dla Siebie.
+              <br />
               Dla Innych.
             </h1>
-            
+
             <p className="text-lg md:text-xl text-gray-400 max-w-xl mb-10 leading-relaxed border-l-2 border-primary pl-6">
-              Nazywam się Michał Zwolak. Moją misją jest pokazywanie, że niemożliwe to tylko opinia.
-              Łączę ekstremalny wysiłek fizyczny z pomaganiem potrzebującym.
+              Nazywam się Michał Zwolak. Moją misją jest pokazywanie, że
+              niemożliwe to tylko opinia. Łączę ekstremalny wysiłek fizyczny z
+              pomaganiem potrzebującym.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button 
-                onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("about")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="px-8 py-4 bg-primary text-white font-bold uppercase tracking-wider hover:bg-red-600 transition-all flex items-center justify-center gap-2 group"
               >
                 Poznaj moją historię
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button 
-                onClick={() => document.getElementById('challenges')?.scrollIntoView({ behavior: 'smooth' })}
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("challenges")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-wider hover:bg-white/5 transition-all"
               >
                 Zobacz Wyzwania
@@ -115,11 +131,13 @@ export default function Home() {
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div 
+        <motion.div
           style={{ opacity }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white flex flex-col items-center gap-2 z-20"
         >
-          <span className="text-xs uppercase tracking-[0.2em] text-gray-500">Scroll</span>
+          <span className="text-xs uppercase tracking-[0.2em] text-gray-500">
+            Scroll
+          </span>
           <div className="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent" />
         </motion.div>
       </section>
@@ -129,9 +147,18 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
             {stats.map((stat, i) => (
-              <div key={i} className="py-8 px-4 text-center group hover:bg-white/5 transition-colors">
+              <div
+                key={i}
+                className="py-8 px-4 text-center group hover:bg-white/5 transition-colors"
+              >
                 <div className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                  <CountUp end={stat.value} duration={2.5} separator=" " suffix={stat.suffix} enableScrollSpy />
+                  <CountUp
+                    end={stat.value}
+                    duration={2.5}
+                    separator=" "
+                    suffix={stat.suffix}
+                    enableScrollSpy
+                  />
                 </div>
                 <div className="text-xs md:text-sm text-gray-500 uppercase tracking-widest font-medium">
                   {stat.label}
@@ -143,7 +170,10 @@ export default function Home() {
       </div>
 
       {/* ABOUT ME SECTION */}
-      <section id="about" className="py-24 md:py-32 bg-background relative overflow-hidden">
+      <section
+        id="about"
+        className="py-24 md:py-32 bg-background relative overflow-hidden"
+      >
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -154,16 +184,18 @@ export default function Home() {
               className="relative"
             >
               <div className="aspect-[3/4] overflow-hidden bg-secondary relative">
-                <img 
-                  src={michalImage} 
-                  alt="Michał Zwolak Portrait" 
+                <img
+                  src={michalAboutMe}
+                  alt="Michał Zwolak Portrait"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 opacity-80"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
               </div>
               <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-primary/10 border border-primary/30 hidden md:flex items-center justify-center p-4 backdrop-blur-sm">
                 <p className="font-display text-4xl font-bold text-primary text-center leading-none">
-                  NEVER<br/>QUIT
+                  NEVER
+                  <br />
+                  QUIT
                 </p>
               </div>
             </motion.div>
@@ -175,19 +207,23 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <SectionHeading title="Kim Jestem" subtitle="Filozofia" />
-              
+
               <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
                 <p>
-                  Nie jestem zawodowym sportowcem. Jestem człowiekiem, który postanowił sprawdzić, 
-                  gdzie leży granica ludzkiej wytrzymałości – i za każdym razem przesuwać ją o krok dalej.
+                  Nie jestem zawodowym sportowcem. Jestem człowiekiem, który
+                  postanowił sprawdzić, gdzie leży granica ludzkiej
+                  wytrzymałości – i za każdym razem przesuwać ją o krok dalej.
                 </p>
                 <p>
-                  Moja przygoda zaczęła się od chęci zmiany własnego życia, ale szybko przerodziła się w coś większego.
-                  Zrozumiałem, że każdy kilometr biegu, każde powtórzenie burpees i każda kropla potu może mieć głębszy sens.
+                  Moja przygoda zaczęła się od chęci zmiany własnego życia, ale
+                  szybko przerodziła się w coś większego. Zrozumiałem, że każdy
+                  kilometr biegu, każde powtórzenie burpees i każda kropla potu
+                  może mieć głębszy sens.
                 </p>
                 <p>
-                  Dziś łączę ekstremalne wyzwania fizyczne z działalnością charytatywną. 
-                  Wierzę, że siła charakteru budowana w bólu i zmęczeniu przekłada się na siłę do pomagania innym.
+                  Dziś łączę ekstremalne wyzwania fizyczne z działalnością
+                  charytatywną. Wierzę, że siła charakteru budowana w bólu i
+                  zmęczeniu przekłada się na siłę do pomagania innym.
                 </p>
               </div>
 
@@ -196,11 +232,13 @@ export default function Home() {
                   "Determinacja ponad talent",
                   "Siła mentalna",
                   "Działanie charytatywne",
-                  "Ciągły rozwój"
+                  "Ciągły rozwój",
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <CheckCircle2 className="text-primary w-6 h-6 shrink-0" />
-                    <span className="font-display font-bold uppercase text-white tracking-wide">{item}</span>
+                    <span className="font-display font-bold uppercase text-white tracking-wide">
+                      {item}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -209,65 +247,145 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CHARITY CHALLENGES */}
+      <section id="charity" className="py-24 md:py-32 bg-[#0a0e27] relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <SectionHeading 
+            title="Wyzwania Charytatywne" 
+            subtitle="Sport dla wyższego celu" 
+            alignment="center"
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "3.000 Burpee",
+                date: "19.07.2020",
+                raised: "2 tyś+ zł",
+                img: charity1,
+                delay: 0.1
+              },
+              {
+                title: "4.001 Burpee",
+                date: "08.03.2021",
+                raised: "4 tyś+ zł",
+                img: charity2,
+                delay: 0.2
+              },
+              {
+                title: "6.061 Burpee w 12h",
+                date: "07.12.2021",
+                raised: "5.8 tyś+ zł",
+                img: charity3,
+                delay: 0.3
+              },
+              {
+                title: "10.294 Burpee w 24h",
+                date: "05.12.2022",
+                raised: "20 tyś+ zł",
+                img: charity4,
+                delay: 0.4
+              },
+              {
+                title: "8.040 Burpee w 20h",
+                date: "05.12.2025",
+                raised: "43 tyś+ zł",
+                img: charity5,
+                delay: 0.5
+              }
+            ].map((challenge, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: challenge.delay }}
+                className="group relative aspect-[4/5] overflow-hidden bg-card border border-white/5"
+              >
+                <img 
+                  src={challenge.img} 
+                  alt={challenge.title}
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80" />
+                <div className="absolute bottom-0 left-0 p-8 w-full">
+                  <p className="text-primary font-bold text-xs uppercase tracking-widest mb-2">{challenge.date}</p>
+                  <h3 className="text-2xl font-display font-bold text-white uppercase mb-2">{challenge.title}</h3>
+                  <div className="flex items-center gap-2">
+                    <Heart className="w-4 h-4 text-primary fill-primary" />
+                    <span className="text-white font-bold">Zebrane: {challenge.raised}</span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CHALLENGES GRID */}
       <section id="challenges" className="py-24 md:py-32 bg-[#0d1230]">
         <div className="container mx-auto px-4">
-          <SectionHeading 
-            title="Moje Wyzwania" 
-            subtitle="Ekstremalne Projekty" 
+          <SectionHeading
+            title="Moje Wyzwania"
+            subtitle="Ekstremalne Projekty Sportowe"
             alignment="center"
           />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ChallengeCard 
-              title="10,000 Burpees"
-              stats="24h Challenge"
-              description="Jedno z najtrudniejszych wyzwań wydolnościowych. Walka z ciałem i umysłem przez całą dobę dla chorego dziecka."
-              icon={Dumbbell}
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <ChallengeCard
+              title="Maraton Poznań"
+              stats="42.195 km"
+              description="Klasyczny dystans maratoński. Test szybkości i wytrzymałości na ulicach Poznania."
+              icon={Trophy}
               status="Completed"
               delay={0.1}
             />
-            <ChallengeCard 
-              title="Bieg Ultra"
-              stats="84 km"
-              description="Bieg górski w ekstremalnych warunkach. Przewyższenia, błoto, noc i samotność na trasie."
-              icon={Mountain}
+            <ChallengeCard
+              title="Maraton Warszawa"
+              stats="+10kg Kamizelka"
+              description="Maraton przebiegnięty z dodatkowym obciążeniem. Ekstremalny test siły nóg i woli walki."
+              icon={Dumbbell}
               status="Completed"
               delay={0.2}
             />
-            <ChallengeCard 
-              title="Rowerem przez Polskę"
-              stats="500 km"
-              description="Non-stop jazda rowerem. Bez snu, z minimalnymi przerwami. Test wytrzymałości psychicznej."
-              icon={Bike}
+            <ChallengeCard
+              title="Półmaraton Wrocław"
+              stats="+20kg Kamizelka"
+              description="Podwójne obciążenie na dystansie 21km. Każdy krok to walka z grawitacją."
+              icon={Dumbbell}
               status="Completed"
               delay={0.3}
             />
-            <ChallengeCard 
-              title="Ironman"
-              stats="Przygotowania"
-              description="Dążenie do ukończenia pełnego dystansu Ironman. Pływanie, rower, bieg - wszystko jednego dnia."
-              icon={Trophy}
-              status="Development"
+            <ChallengeCard
+              title="Ultramaraton Gdańsk"
+              stats="92 km"
+              description="Ekstremalny dystans ultra. Ponad dwa klasyczne maratony jeden po drugim."
+              icon={Mountain}
+              status="Completed"
               delay={0.4}
             />
-            <ChallengeCard 
-              title="Charytatywne Live"
-              stats="Cyklicznie"
-              description="Wspólne treningi online połączone ze zbiórkami pieniędzy na cele charytatywne."
-              icon={Heart}
-              status="Periodic"
-              delay={0.5}
-            />
-            <ChallengeCard 
-              title="Everesting"
-              stats="8848m w górę"
-              description="Wbiegnięcie na wysokość Mount Everestu na jednej górze, bez snu."
-              icon={TrendingUp}
-              status="Ongoing"
-              delay={0.6}
-            />
           </div>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-16 text-center"
+          >
+            <div className="inline-block p-12 border border-dashed border-primary/30 bg-primary/5">
+              <h3 className="text-3xl font-display font-bold text-white uppercase mb-4 italic">Następne wyzwanie?</h3>
+              <p className="text-gray-400 mb-8 max-w-md mx-auto">
+                Granice są po to, by je przesuwać. Kolejny projekt jest już w fazie planowania. 
+                Chcesz stać się częścią tej historii?
+              </p>
+              <button
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-8 py-4 bg-primary text-white font-bold uppercase tracking-wider hover:bg-red-600 transition-all"
+              >
+                Bądź na bieżąco
+              </button>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -282,20 +400,20 @@ export default function Home() {
                 icon: Heart,
                 title: "Wsparcie Charytatywne",
                 desc: "Masz cel charytatywny, który potrzebuje rozgłosu? Zróbmy razem coś szalonego, by o nim usłyszano.",
-                action: "Zgłoś cel"
+                action: "Zgłoś cel",
               },
               {
                 icon: Users,
                 title: "Współpraca Biznesowa",
                 desc: "Szukasz ambasadora marki, który uosabia determinację i siłę? Promuj swoją firmę poprzez sport.",
-                action: "Oferta dla firm"
+                action: "Oferta dla firm",
               },
               {
                 icon: TrendingUp,
                 title: "Motywacja & Prelekcje",
                 desc: "Chcesz zmotywować swój zespół? Opowiem o tym, jak przesuwać granice niemożliwego w życiu i biznesie.",
-                action: "Zaproś mnie"
-              }
+                action: "Zaproś mnie",
+              },
             ].map((box, i) => (
               <motion.div
                 key={i}
@@ -308,10 +426,16 @@ export default function Home() {
                 <div className="w-14 h-14 bg-primary/10 rounded-none flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                   <box.icon size={28} />
                 </div>
-                <h3 className="text-xl font-display font-bold text-white mb-4 uppercase">{box.title}</h3>
+                <h3 className="text-xl font-display font-bold text-white mb-4 uppercase">
+                  {box.title}
+                </h3>
                 <p className="text-gray-400 mb-8 min-h-[80px]">{box.desc}</p>
-                <button 
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById("contact")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
                   className="text-primary font-bold uppercase tracking-wider text-sm hover:text-white transition-colors flex items-center gap-2"
                 >
                   {box.action} <ArrowRight size={16} />
@@ -329,19 +453,31 @@ export default function Home() {
             <div>
               <SectionHeading title="Kontakt" subtitle="Napisz do mnie" />
               <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                Masz pomysł na wyzwanie? Chcesz nawiązać współpracę? A może po prostu chcesz pogadać o treningu?
-                <br/><br/>
-                Wypełnij formularz, a ja postaram się odpisać w przerwie między treningami.
+                Masz pomysł na wyzwanie? Chcesz nawiązać współpracę? A może po
+                prostu chcesz pogadać o treningu?
+                <br />
+                <br />
+                Wypełnij formularz, a ja postaram się odpisać w przerwie między
+                treningami.
               </p>
-              
+
               <div className="space-y-4">
-                <a href="#" className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors p-4 border border-white/5 hover:bg-white/5">
+                <a
+                  href="#"
+                  className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors p-4 border border-white/5 hover:bg-white/5"
+                >
                   <Mail className="text-primary" />
-                  <span className="font-display tracking-wide">kontakt@michalzwolak.pl</span>
+                  <span className="font-display tracking-wide">
+                    kontakt@michalzwolak.pl
+                  </span>
                 </a>
                 <div className="flex gap-4 mt-8">
                   {[Instagram, Facebook, Linkedin].map((Icon, i) => (
-                    <a key={i} href="#" className="w-12 h-12 bg-background border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all">
+                    <a
+                      key={i}
+                      href="#"
+                      className="w-12 h-12 bg-background border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all"
+                    >
                       <Icon size={20} />
                     </a>
                   ))}
@@ -350,34 +486,49 @@ export default function Home() {
             </div>
 
             <div className="bg-background p-8 md:p-10 border border-white/5 shadow-2xl">
-              <h3 className="text-2xl font-display font-bold text-white mb-6 uppercase">Wyślij wiadomość</h3>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <h3 className="text-2xl font-display font-bold text-white mb-6 uppercase">
+                Wyślij wiadomość
+              </h3>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Imię i Nazwisko</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+                    Imię i Nazwisko
+                  </label>
                   <input
                     {...form.register("name")}
                     className="w-full bg-card border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                     placeholder="Jan Kowalski"
                   />
                   {form.formState.errors.name && (
-                    <p className="text-primary text-xs mt-1">{form.formState.errors.name.message}</p>
+                    <p className="text-primary text-xs mt-1">
+                      {form.formState.errors.name.message}
+                    </p>
                   )}
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Adres Email</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+                    Adres Email
+                  </label>
                   <input
                     {...form.register("email")}
                     className="w-full bg-card border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                     placeholder="jan@example.com"
                   />
                   {form.formState.errors.email && (
-                    <p className="text-primary text-xs mt-1">{form.formState.errors.email.message}</p>
+                    <p className="text-primary text-xs mt-1">
+                      {form.formState.errors.email.message}
+                    </p>
                   )}
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Wiadomość</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+                    Wiadomość
+                  </label>
                   <textarea
                     {...form.register("message")}
                     rows={4}
@@ -385,7 +536,9 @@ export default function Home() {
                     placeholder="Treść wiadomości..."
                   />
                   {form.formState.errors.message && (
-                    <p className="text-primary text-xs mt-1">{form.formState.errors.message.message}</p>
+                    <p className="text-primary text-xs mt-1">
+                      {form.formState.errors.message.message}
+                    </p>
                   )}
                 </div>
 
@@ -409,8 +562,10 @@ export default function Home() {
             Michał<span className="text-primary">Zwolak</span>
           </h2>
           <p className="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} Wszelkie prawa zastrzeżone. <br/>
-            Designed with <Heart size={12} className="inline text-primary mx-1" /> by AI Design Engineer.
+            &copy; {new Date().getFullYear()} Wszelkie prawa zastrzeżone. <br />
+            Designed with{" "}
+            <Heart size={12} className="inline text-primary mx-1" /> by AI
+            Design Engineer.
           </p>
         </div>
       </footer>
