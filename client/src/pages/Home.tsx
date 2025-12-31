@@ -263,17 +263,17 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "3.000 Burpee",
-                date: "19.07.2020",
-                raised: "2 tyś+ zł",
-                img: charity1,
+                title: "8.040 Burpee w 20h",
+                date: "05.12.2025",
+                raised: "43 tyś+ zł",
+                img: charity5,
                 delay: 0.1,
               },
               {
-                title: "4.001 Burpee",
-                date: "08.03.2021",
-                raised: "4 tyś+ zł",
-                img: charity2,
+                title: "10.294 Burpee w 24h",
+                date: "05.12.2022",
+                raised: "20 tyś+ zł",
+                img: charity4,
                 delay: 0.2,
               },
               {
@@ -284,17 +284,17 @@ export default function Home() {
                 delay: 0.3,
               },
               {
-                title: "10.294 Burpee w 24h",
-                date: "05.12.2022",
-                raised: "20 tyś+ zł",
-                img: charity4,
+                title: "4.001 Burpee",
+                date: "08.03.2021",
+                raised: "4 tyś+ zł",
+                img: charity2,
                 delay: 0.4,
               },
               {
-                title: "8.040 Burpee w 20h",
-                date: "05.12.2025",
-                raised: "43 tyś+ zł",
-                img: charity5,
+                title: "3.000 Burpee",
+                date: "19.07.2020",
+                raised: "2 tyś+ zł",
+                img: charity1,
                 delay: 0.5,
               },
             ].map((challenge, i) => (
@@ -473,17 +473,20 @@ export default function Home() {
                 prostu chcesz rozwijać się fizycznie razem ze mną?
                 <br />
                 <br />
-                Wypełnij formularz, a ja się do Ciebie odezwę w ciągu 24 godzin.
+                Skontaktuj się ze mną na Instagramie lub wypełnij formularz, a
+                ja się do Ciebie odezwę w ciągu 24 godzin.
               </p>
 
               <div className="space-y-4">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/michalzwolak87/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors p-4 border border-white/5 hover:bg-white/5"
                 >
-                  <Mail className="text-primary" />
-                  <span className="font-display tracking-wide">
-                    kontakt@michalzwolak.pl
+                  <Instagram className="text-primary" />
+                  <span className="font-display tracking-wide uppercase font-bold">
+                    Skontaktuj się na Instagram
                   </span>
                 </a>
                 <div className="flex gap-4 mt-8">
@@ -494,12 +497,6 @@ export default function Home() {
                     className="w-12 h-12 bg-background border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all"
                   >
                     <Instagram size={20} />
-                  </a>
-                  <a
-                    href="#"
-                    className="w-12 h-12 bg-background border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all"
-                  >
-                    <Linkedin size={20} />
                   </a>
                 </div>
               </div>
