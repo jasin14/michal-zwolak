@@ -29,7 +29,7 @@ Nowoczesne portfolio personal branding stworzone w React + Vite + TypeScript.
 
 ## 📋 Wymagania
 
-- Node.js 18+
+- Node.js 24+
 - npm lub yarn
 - Konto Resend (darmowe - 100 emaili/dzień)
 

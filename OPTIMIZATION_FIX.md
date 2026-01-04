@@ -1,31 +1,29 @@
-# 🔧 POPRAWKI - Node.js 18 i optymalizacja bundle
+# 🔧 POPRAWKI - Node.js 24 i optymalizacja bundle
 
-## ✅ Problem 1: Nieprawidłowa wersja Node.js
+## ✅ Problem 1: Wersja Node.js
 
-### ❌ Błąd:
-```
-Error: Found invalid Node.js Version: "24.x". 
-Please set Node.js Version to 18.x
-```
+### ⚠️ Update (Styczeń 2025):
+Vercel zmienił wymagania - Node.js 18.x jest przestarzały, wymagany jest **Node.js 24.x**
 
 ### ✅ Rozwiązanie:
 
-#### 1. Dodano plik `.node-version`:
+#### 1. Zaktualizowano plik `.node-version`:
 ```
-18
+24
 ```
 
-#### 2. Dodano `engines` w `package.json`:
+#### 2. Zaktualizowano `engines` w `package.json`:
 ```json
 "engines": {
-  "node": "18.x"
+  "node": "24.x"
 }
 ```
 
-**Dlaczego?**
-- Vercel domyślnie używa najnowszej wersji Node.js
-- Niektóre pakiety mogą nie być kompatybilne z Node.js 24.x
-- Node.js 18.x to LTS (Long Term Support) - stabilna wersja
+**Dlaczego Node.js 24.x?**
+- Node.js 18.x został oznaczony jako "discontinued" przez Vercel
+- Node.js 24.x to najnowsza wersja z najlepszą wydajnością
+- Lepsze wsparcie dla ESM i TypeScript
+- Wszystkie pakiety w projekcie są kompatybilne
 
 ---
 
@@ -104,7 +102,7 @@ Czas ładowania:
 ### 1. Commitnij zmiany:
 ```bash
 git add .
-git commit -m "Fix Node.js version to 18.x and optimize bundle splitting"
+git commit -m "Fix Node.js version to 24.x and optimize bundle splitting"
 git push origin main
 ```
 
@@ -154,7 +152,7 @@ Druga wizyta:
 ## ✅ Status: GOTOWE!
 
 Wszystkie problemy rozwiązane:
-- ✅ Node.js 18.x ustawiony
+- ✅ Node.js 24.x ustawiony
 - ✅ Bundle zoptymalizowany
 - ✅ Chunk splitting skonfigurowany
 - ✅ Gotowe do deploymentu

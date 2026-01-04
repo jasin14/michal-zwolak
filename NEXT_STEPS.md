@@ -42,8 +42,8 @@ git push origin main
 - ✅ `vercel.json` - Konfiguracja Vercel
 - ✅ `api/` - Serverless functions
 - ✅ `.vercelignore` - Ignorowane pliki
-- ✅ `.node-version` - Wersja Node.js 18.x dla Vercel
-- ✅ `package.json` - Zaktualizowane skrypty i engines
+- ✅ `.node-version` - Wersja Node.js 24.x dla Vercel
+- ✅ `package.json` - Zaktualizowane skrypty i engines (Node 24.x)
 - ✅ `vite.config.ts` - Optymalizacja bundle splitting
 - ✅ Wszystkie zaktualizowane pliki
 
@@ -100,7 +100,7 @@ NODE_ENV = production
 - **Quick Start**: `QUICKSTART.md` - Szybki przewodnik
 - **Pełna dokumentacja**: `VERCEL_DEPLOYMENT.md` - Szczegóły
 - **Co się zmieniło**: `CHANGELOG.md` - Lista zmian
-- **Poprawki buildu**: `OPTIMIZATION_FIX.md` - Node.js 18 + bundle optimization
+- **Poprawki buildu**: `OPTIMIZATION_FIX.md` - Node.js 24 + bundle optimization
 - **README**: `README.md` - Główna dokumentacja
 
 ## ⚠️ WAŻNE PRZYPOMNIENIA:
