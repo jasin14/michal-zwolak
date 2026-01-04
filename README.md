@@ -113,9 +113,10 @@ Edytuj plik `client/src/pages/Home.tsx` w sekcji `CONTACT SECTION`
 
 ## 📝 Scripts
 
-- `npm run dev` - Uruchomienie serwera deweloperskiego
-- `npm run build` - Build produkcyjny
-- `npm start` - Uruchomienie buildu produkcyjnego
+- `npm run dev` - Uruchomienie serwera deweloperskiego (Express + Vite)
+- `npm run build` - Build produkcyjny dla Vercel (tylko Vite)
+- `npm run build:full` - Build pełny (Express + Vite) dla lokalnego uruchomienia
+- `npm start` - Uruchomienie buildu produkcyjnego z Express
 - `npm run check` - Sprawdzenie typów TypeScript
 
 ## 🐛 Rozwiązywanie problemów

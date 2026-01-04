@@ -38,6 +38,13 @@ git commit -m "Remove database dependency and prepare for Vercel deployment"
 git push origin main
 ```
 
+**WAŻNE:** Upewnij się, że commitnujesz:
+- ✅ `vercel.json` - Konfiguracja Vercel
+- ✅ `api/` - Serverless functions
+- ✅ `.vercelignore` - Ignorowane pliki
+- ✅ `package.json` - Zaktualizowane skrypty (build → vite build)
+- ✅ Wszystkie zaktualizowane pliki
+
 ### 2. Załóż konto Resend (WYMAGANE):
 - Idź na: https://resend.com/signup
 - Załóż darmowe konto
@@ -52,6 +59,7 @@ git push origin main
 3. W Environment Variables dodaj:
    RESEND_API_KEY = twoj_klucz_z_resend
 4. Kliknij Deploy
+5. Poczekaj 2-3 minuty na build
 
 # Opcja B: Przez CLI
 npm install -g vercel

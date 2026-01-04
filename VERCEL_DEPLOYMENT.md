@@ -6,9 +6,14 @@ Projekt został skonfigurowany do wdrożenia na Vercel z wykorzystaniem serverle
 **Nie wymaga bazy danych** - wiadomości z formularza są wysyłane bezpośrednio na email przez Resend.
 
 ### Struktura projektu:
-- `/api` - Serverless functions dla endpointów API
+- `/api` - Serverless functions dla endpointów API (TypeScript)
 - `/client` - Frontend React + Vite
 - `vercel.json` - Konfiguracja Vercel
+- `dist/public` - Folder buildu (generowany automatycznie)
+
+### Build process:
+Vercel uruchamia `npm run build` który wykonuje `vite build` i generuje statyczne pliki w `dist/public`.
+Serverless functions w `/api` są kompilowane automatycznie przez Vercel.
 
 ## Kroki wdrożenia:
 
