@@ -21,6 +21,7 @@ import {
   Linkedin,
   Mail,
   CheckCircle2,
+  MapPin,
 } from "lucide-react";
 import michalImage from "../assets/Michal-hero.jpg";
 import michalAboutMe from "../assets/Michal-2.jpg";
@@ -509,45 +510,47 @@ export default function Home() {
               </p>
 
               <div className="space-y-4">
-                <div className="p-6 border border-white/5 bg-white/5 space-y-4">
-                  <h4 className="text-white font-display font-bold uppercase tracking-wider border-b border-primary/30 pb-2">
-                    Lokalizacje treningów
-                  </h4>
+                  <div className="p-6 border border-white/5 bg-white/5 space-y-4">
+                    <h4 className="text-white font-display font-bold uppercase tracking-wider pb-2">
+                      Lokalizacje treningów
+                    </h4>
                     <div className="space-y-4">
                       <div>
-                        <p className="text-primary font-bold text-sm uppercase">
+                        <p className="text-primary font-bold text-sm uppercase mb-1">
                           Tarnogaj - Treningi Personalne
                         </p>
                         <a
                           href="https://maps.app.goo.gl/MauBnepapjYtshL6A"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-300 hover:text-primary transition-colors block underline decoration-primary/30 underline-offset-4"
+                          className="text-gray-300 hover:text-primary transition-colors flex items-center gap-2 group"
                         >
-                          Strength & Conditioning Performance
+                          <MapPin size={16} className="text-primary" />
+                          <span className="group-hover:text-primary transition-colors">Strength & Conditioning Performance</span>
                         </a>
-                        <p className="text-gray-400 text-sm italic">
+                        <p className="text-gray-400 text-sm italic ml-6">
                           Międzyleska 4, 50-514 Wrocław
                         </p>
                       </div>
                       <div>
-                        <p className="text-primary font-bold text-sm uppercase">
+                        <p className="text-primary font-bold text-sm uppercase mb-1">
                           Psie Pole - Zajęcia Grupowe
                         </p>
                         <a
                           href="https://maps.app.goo.gl/EdJV8XcjhyFWnAGa8"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-300 hover:text-primary transition-colors block underline decoration-primary/30 underline-offset-4"
+                          className="text-gray-300 hover:text-primary transition-colors flex items-center gap-2 group"
                         >
-                          CrossGym
+                          <MapPin size={16} className="text-primary" />
+                          <span className="group-hover:text-primary transition-colors">CrossGym</span>
                         </a>
-                        <p className="text-gray-400 text-sm italic">
+                        <p className="text-gray-400 text-sm italic ml-6">
                           Kiełczowska 177, 51-315 Wrocław
                         </p>
                       </div>
                     </div>
-                </div>
+                  </div>
 
                 <a
                   href="https://www.instagram.com/michalzwolak87/"
