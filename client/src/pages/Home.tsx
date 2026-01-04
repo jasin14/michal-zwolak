@@ -113,20 +113,20 @@ export default function Home() {
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
                 className="px-8 py-4 bg-primary text-white font-bold uppercase tracking-wider hover:bg-red-600 transition-all flex items-center justify-center gap-2 group"
+                data-testid="button-about"
               >
                 Poznaj moją historię
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("challenges")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-wider hover:bg-white/5 transition-all"
+              <a
+                href="https://www.instagram.com/michalzwolak87/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-wider hover:bg-white/5 transition-all text-center flex items-center justify-center"
+                data-testid="link-instagram-hero"
               >
-                Zobacz Wyzwania
-              </button>
+                Bądź na bieżąco
+              </a>
             </div>
           </motion.div>
         </div>
@@ -513,40 +513,40 @@ export default function Home() {
                   <h4 className="text-white font-display font-bold uppercase tracking-wider border-b border-primary/30 pb-2">
                     Lokalizacje treningów
                   </h4>
-                  <div className="space-y-4">
-                    <div>
-                      <p className="text-primary font-bold text-sm uppercase">
-                        Tarnogaj - Treningi Personalne
-                      </p>
-                      <a 
-                        href="https://maps.app.goo.gl/MauBnepapjYtshL6A" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-gray-300 hover:text-primary transition-colors block underline decoration-primary/30 underline-offset-4"
-                      >
-                        Strength & Conditioning Performance
-                      </a>
-                      <p className="text-gray-400 text-sm italic">
-                        Międzyleska 4, 50-514 Wrocław
-                      </p>
+                    <div className="space-y-4">
+                      <div>
+                        <p className="text-primary font-bold text-sm uppercase">
+                          Tarnogaj - Treningi Personalne
+                        </p>
+                        <a
+                          href="https://maps.app.goo.gl/MauBnepapjYtshL6A"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-300 hover:text-primary transition-colors block underline decoration-primary/30 underline-offset-4"
+                        >
+                          Strength & Conditioning Performance
+                        </a>
+                        <p className="text-gray-400 text-sm italic">
+                          Międzyleska 4, 50-514 Wrocław
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-primary font-bold text-sm uppercase">
+                          Psie Pole - Zajęcia Grupowe
+                        </p>
+                        <a
+                          href="https://maps.app.goo.gl/EdJV8XcjhyFWnAGa8"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-300 hover:text-primary transition-colors block underline decoration-primary/30 underline-offset-4"
+                        >
+                          CrossGym
+                        </a>
+                        <p className="text-gray-400 text-sm italic">
+                          Kiełczowska 177, 51-315 Wrocław
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-primary font-bold text-sm uppercase">
-                        Psie Pole - Zajęcia Grupowe
-                      </p>
-                      <a 
-                        href="https://maps.app.goo.gl/EdJV8XcjhyFWnAGa8" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-gray-300 hover:text-primary transition-colors block underline decoration-primary/30 underline-offset-4"
-                      >
-                        CrossGym
-                      </a>
-                      <p className="text-gray-400 text-sm italic">
-                        Kiełczowska 177, 51-315 Wrocław
-                      </p>
-                    </div>
-                  </div>
                 </div>
 
                 <a
