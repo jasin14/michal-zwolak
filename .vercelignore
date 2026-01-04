@@ -1,0 +1,16 @@
+node_modules
+.git
+.env
+.env.local
+.env*.local
+dist
+*.log
+.DS_Store
+server/
+script/
+attached_assets/
+replit.md
+README.md
+CHANGELOG.md
+QUICKSTART.md
+VERCEL_DEPLOYMENT.md

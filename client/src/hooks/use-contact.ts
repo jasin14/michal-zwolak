@@ -2,7 +2,6 @@ import { useMutation } from "@tanstack/react-query";
 import { api } from "@shared/routes";
 import { useToast } from "@/hooks/use-toast";
 import { type InsertMessage } from "@shared/schema";
-import { z } from "zod";
 
 export function useContact() {
   const { toast } = useToast();
@@ -20,17 +19,21 @@ export function useContact() {
 
       if (!res.ok) {
         if (res.status === 400) {
-          const error = api.contact.submit.responses[400].parse(await res.json());
-          throw new Error(error.message);
+          const error = await res.json();
+          throw new Error(error.message || "Nieprawidłowe dane");
         }
-        throw new Error("Failed to send message");
+        if (res.status === 500) {
+          const error = await res.json();
+          throw new Error(error.message || "Błąd serwera");
+        }
+        throw new Error("Nie udało się wysłać wiadomości");
       }
 
-      return api.contact.submit.responses[201].parse(await res.json());
+      return await res.json();
     },
     onSuccess: () => {
       toast({
-        title: "Wiadomość wysłana",
+        title: "Wiadomość wysłana! ✓",
         description: "Dziękuję za kontakt! Odpiszę najszybciej jak to możliwe.",
       });
     },

@@ -1,14 +1,25 @@
-import type { Express } from "express";
-import type { Server } from "http";
-import { api } from "@shared/routes";
-import { z } from "zod";
-import { Resend } from "resend";
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { api } from '../shared/routes';
+import { z } from 'zod';
+import { Resend } from 'resend';
 
-export async function registerRoutes(
-  httpServer: Server,
-  app: Express
-): Promise<Server> {
-  app.post(api.contact.submit.path, async (req, res) => {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // Enable CORS
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  );
+
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+
+  // Handle contact form submission
+  if (req.url?.startsWith('/api/contact/submit') && req.method === 'POST') {
     try {
       const input = api.contact.submit.input.parse(req.body);
 
@@ -43,13 +54,13 @@ ${input.message}
           `,
         });
 
-        res.status(201).json({ 
+        return res.status(201).json({ 
           success: true,
           message: 'Wiadomość została wysłana'
         });
       } catch (emailError) {
         console.error('Failed to send email via Resend:', emailError);
-        res.status(500).json({ message: 'Nie udało się wysłać wiadomości' });
+        return res.status(500).json({ message: 'Nie udało się wysłać wiadomości' });
       }
     } catch (err) {
       if (err instanceof z.ZodError) {
@@ -58,9 +69,11 @@ ${input.message}
           field: err.errors[0].path.join('.'),
         });
       }
-      throw err;
+      console.error('Error in contact form submission:', err);
+      return res.status(500).json({ message: 'Internal Server Error' });
     }
-  });
+  }
 
-  return httpServer;
+  // Default 404 response
+  res.status(404).json({ message: 'Not Found' });
 }
