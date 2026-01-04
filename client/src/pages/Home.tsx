@@ -263,19 +263,21 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "31 H Burpee dla Maćka Beifusa",
+                title: "31 H Burpee dla Maćka",
                 date: "5-6.12.2025",
                 raised: "43 tyś+ zł",
-                description: "Celem było wykonanie 12 tys powtórzeń. Niestety z przyczyn zdrowotnych zmuszony byłem przerwać w 21 godzinie kończąc na 8040 powtórzeń.",
+                description:
+                  "Cel 12 tys powtórzeń. Zdrowie pozwoliło na 8,040 w 21h.",
                 location: "Strength & Conditioning Performance",
+                url: "https://facebook.com/events/s/1304909057789680/",
                 img: charity5,
                 delay: 0.1,
               },
               {
-                title: "24 H Burpee by wesprzeć Maję",
+                title: "24 H Burpee dla Mai",
                 date: "3-4.12.2022",
                 raised: "20 tyś+ zł",
-                description: "Celem było 10 tys powtórzeń. Zakończone na 10 tys 294.",
+                description: "Cel 10 tys powtórzeń. Wykonałem 10,294",
                 location: "Strength & Conditioning Performance",
                 url: "https://facebook.com/events/s/24-h-burpe-by-wesprzec-maje/594974192409892/",
                 img: charity4,
@@ -284,8 +286,8 @@ export default function Home() {
               {
                 title: "12 h Burpee dla Marysi",
                 date: "7.12.2021",
-                raised: "5.8 tyś+ zł",
-                description: "Nieoficjalny Rekord Guinnessa: 6061 powtórzeń.",
+                raised: "5.8 tyś zł",
+                description: "Nieoficjalny Rekord Guinnessa: 6061 powtórzeń",
                 location: "Strength & Conditioning Performance",
                 url: "https://facebook.com/events/s/12-h-burpee-dla-marysi/838462000179050/",
                 img: charity3,
@@ -508,17 +510,29 @@ export default function Home() {
 
               <div className="space-y-4">
                 <div className="p-6 border border-white/5 bg-white/5 space-y-4">
-                  <h4 className="text-white font-display font-bold uppercase tracking-wider border-b border-primary/30 pb-2">Lokalizacje treningów</h4>
+                  <h4 className="text-white font-display font-bold uppercase tracking-wider border-b border-primary/30 pb-2">
+                    Lokalizacje treningów
+                  </h4>
                   <div className="space-y-4">
                     <div>
-                      <p className="text-primary font-bold text-sm uppercase">Tarnogaj - Treningi Personalne</p>
-                      <p className="text-gray-300">Strength & Conditioning Performance</p>
-                      <p className="text-gray-400 text-sm italic">Międzyleska 4, 50-514 Wrocław</p>
+                      <p className="text-primary font-bold text-sm uppercase">
+                        Tarnogaj - Treningi Personalne
+                      </p>
+                      <p className="text-gray-300">
+                        Strength & Conditioning Performance
+                      </p>
+                      <p className="text-gray-400 text-sm italic">
+                        Międzyleska 4, 50-514 Wrocław
+                      </p>
                     </div>
                     <div>
-                      <p className="text-primary font-bold text-sm uppercase">Psie Pole - Zajęcia Grupowe</p>
+                      <p className="text-primary font-bold text-sm uppercase">
+                        Psie Pole - Zajęcia Grupowe
+                      </p>
                       <p className="text-gray-300">CrossGym</p>
-                      <p className="text-gray-400 text-sm italic">Kiełczowska 177, 51-315 Wrocław</p>
+                      <p className="text-gray-400 text-sm italic">
+                        Kiełczowska 177, 51-315 Wrocław
+                      </p>
                     </div>
                   </div>
                 </div>
