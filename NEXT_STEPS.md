@@ -34,7 +34,7 @@ Projekt został pomyślnie uproszony - **usunąłem bazę danych** i przygotowa�
 ### 1. Commitnij zmiany do Git:
 ```bash
 git add .
-git commit -m "Remove database dependency and prepare for Vercel deployment"
+git commit -m "Remove database, optimize bundle, and prepare for Vercel deployment"
 git push origin main
 ```
 
@@ -42,7 +42,9 @@ git push origin main
 - ✅ `vercel.json` - Konfiguracja Vercel
 - ✅ `api/` - Serverless functions
 - ✅ `.vercelignore` - Ignorowane pliki
-- ✅ `package.json` - Zaktualizowane skrypty (build → vite build)
+- ✅ `.node-version` - Wersja Node.js 18.x dla Vercel
+- ✅ `package.json` - Zaktualizowane skrypty i engines
+- ✅ `vite.config.ts` - Optymalizacja bundle splitting
 - ✅ Wszystkie zaktualizowane pliki
 
 ### 2. Załóż konto Resend (WYMAGANE):
@@ -98,6 +100,7 @@ NODE_ENV = production
 - **Quick Start**: `QUICKSTART.md` - Szybki przewodnik
 - **Pełna dokumentacja**: `VERCEL_DEPLOYMENT.md` - Szczegóły
 - **Co się zmieniło**: `CHANGELOG.md` - Lista zmian
+- **Poprawki buildu**: `OPTIMIZATION_FIX.md` - Node.js 18 + bundle optimization
 - **README**: `README.md` - Główna dokumentacja
 
 ## ⚠️ WAŻNE PRZYPOMNIENIA:
