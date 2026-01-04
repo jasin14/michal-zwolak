@@ -34,12 +34,12 @@ Projekt został pomyślnie uproszony - **usunąłem bazę danych** i przygotowa�
 ### 1. Commitnij zmiany do Git:
 ```bash
 git add .
-git commit -m "Remove database, optimize bundle, and prepare for Vercel deployment"
+git commit -m "Fix Vercel config: remove hardcoded runtime version, use Node.js 24.x"
 git push origin main
 ```
 
 **WAŻNE:** Upewnij się, że commitnujesz:
-- ✅ `vercel.json` - Konfiguracja Vercel
+- ✅ `vercel.json` - **ZAKTUALIZOWANY** - usunięto zahardcodowaną wersję runtime
 - ✅ `api/` - Serverless functions
 - ✅ `.vercelignore` - Ignorowane pliki
 - ✅ `.node-version` - Wersja Node.js 24.x dla Vercel
@@ -54,20 +54,31 @@ git push origin main
 - Skopiuj klucz (zaczyna się od `re_`)
 
 ### 3. Deploy na Vercel:
-```bash
-# Opcja A: Przez dashboard (ZALECANE)
-1. Idź na: https://vercel.com/new
-2. Zaimportuj repozytorium z GitHub
-3. W Environment Variables dodaj:
-   RESEND_API_KEY = twoj_klucz_z_resend
-4. Kliknij Deploy
-5. Poczekaj 2-3 minuty na build
 
-# Opcja B: Przez CLI
+**⚠️ WAŻNE - WYCZYŚĆ CACHE!**
+
+Vercel cache'ował starą wersję runtime. Musisz wyczyścić cache:
+
+#### Przez Dashboard:
+1. Idź na: https://vercel.com/dashboard
+2. Wybierz swój projekt
+3. Settings → General → "Clear Build Cache" → Kliknij
+4. Wróć do Deployments
+5. Znajdź ostatni deployment → Kliknij menu (•••) → "Redeploy"
+6. **WAŻNE:** Odznacz "Use existing Build Cache"
+7. Kliknij "Redeploy"
+
+#### Przez CLI:
+```bash
 npm install -g vercel
 vercel login
-vercel
-# Postępuj zgodnie z instrukcjami
+vercel --force  # Force rebuild bez cache
+```
+
+#### Dodaj zmienną środowiskową:
+W Settings → Environment Variables:
+```
+RESEND_API_KEY = twoj_klucz_z_resend
 ```
 
 ### 4. Testuj!
@@ -97,6 +108,7 @@ NODE_ENV = production
 
 ## 📚 Dodatkowe zasoby:
 
+- **CACHE FIX**: `VERCEL_CACHE_FIX.md` - ⭐ **PRZECZYTAJ NAJPIERW!**
 - **Quick Start**: `QUICKSTART.md` - Szybki przewodnik
 - **Pełna dokumentacja**: `VERCEL_DEPLOYMENT.md` - Szczegóły
 - **Co się zmieniło**: `CHANGELOG.md` - Lista zmian
