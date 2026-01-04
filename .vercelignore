@@ -6,8 +6,4 @@ node_modules
 *.log
 .DS_Store
 attached_assets/
-replit.md
 README.md
-CHANGELOG.md
-QUICKSTART.md
-VERCEL_DEPLOYMENT.md

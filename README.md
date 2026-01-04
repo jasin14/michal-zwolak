@@ -1,6 +1,6 @@
-# Portfolio Michała Zwolaka
+# Michał Zwolak - Strona Osobista
 
-Nowoczesne portfolio personal branding stworzone w React + Vite + TypeScript.
+Oficjalna strona internetowa Michała Zwolaka - trenera personalnego, sportowca wytrzymałościowego i działacza charytatywnego.
 
 ## ✨ Funkcje
 
@@ -8,7 +8,7 @@ Nowoczesne portfolio personal branding stworzone w React + Vite + TypeScript.
 - 🎨 Nowoczesny UI z animacjami
 - 📧 Formularz kontaktowy z integracją Resend
 - 🚀 Gotowe do wdrożenia na Vercel
-- ⚡ Bez bazy danych - uproszczona architektura
+- 🎯 SEO zoptymalizowane
 
 ## 🛠️ Technologie
 

@@ -665,9 +665,7 @@ export default function Home() {
           </h2>
           <p className="text-gray-500 text-sm">
             &copy; {new Date().getFullYear()} Wszelkie prawa zastrzeżone. <br />
-            Designed with{" "}
-            <Heart size={12} className="inline text-primary mx-1" /> by AI
-            Design Engineer.
+            Designed by Develop IT Jacek Jasiński
           </p>
         </div>
       </footer>
