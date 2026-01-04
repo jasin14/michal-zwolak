@@ -518,9 +518,14 @@ export default function Home() {
                       <p className="text-primary font-bold text-sm uppercase">
                         Tarnogaj - Treningi Personalne
                       </p>
-                      <p className="text-gray-300">
+                      <a 
+                        href="https://maps.app.goo.gl/MauBnepapjYtshL6A" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-gray-300 hover:text-primary transition-colors block underline decoration-primary/30 underline-offset-4"
+                      >
                         Strength & Conditioning Performance
-                      </p>
+                      </a>
                       <p className="text-gray-400 text-sm italic">
                         Międzyleska 4, 50-514 Wrocław
                       </p>
@@ -529,7 +534,14 @@ export default function Home() {
                       <p className="text-primary font-bold text-sm uppercase">
                         Psie Pole - Zajęcia Grupowe
                       </p>
-                      <p className="text-gray-300">CrossGym</p>
+                      <a 
+                        href="https://maps.app.goo.gl/EdJV8XcjhyFWnAGa8" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-gray-300 hover:text-primary transition-colors block underline decoration-primary/30 underline-offset-4"
+                      >
+                        CrossGym
+                      </a>
                       <p className="text-gray-400 text-sm italic">
                         Kiełczowska 177, 51-315 Wrocław
                       </p>
