@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Instagram } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
@@ -58,6 +58,14 @@ export function Navbar() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </button>
           ))}
+          <a
+            href="https://www.instagram.com/michalzwolak87/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-primary transition-colors p-2"
+          >
+            <Instagram size={24} />
+          </a>
           <button
             onClick={() => scrollToSection("#contact")}
             className="px-6 py-2 bg-primary hover:bg-red-600 text-white font-bold uppercase text-sm tracking-wider transition-all transform hover:-translate-y-0.5 shadow-lg shadow-primary/25"
@@ -66,13 +74,23 @@ export function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-white hover:text-primary transition-colors"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        {/* Mobile Toggle & Socials */}
+        <div className="flex items-center gap-4 md:hidden">
+          <a
+            href="https://www.instagram.com/michalzwolak87/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-primary transition-colors"
+          >
+            <Instagram size={24} />
+          </a>
+          <button
+            className="text-white hover:text-primary transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

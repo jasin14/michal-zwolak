@@ -23,7 +23,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import michalImage from "../assets/Michal-hero.jpg";
-import michalAboutMe from "../assets/Michal-3.jpg";
+import michalAboutMe from "../assets/Michal-2.jpg";
 import charity1 from "../assets/Michal-charity-1.jpg";
 import charity2 from "../assets/Michal-charity-2.jpg";
 import charity3 from "../assets/Michal-charity-3.jpg";
@@ -263,37 +263,51 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "8.040 Burpee w 20h",
-                date: "05.12.2025",
+                title: "31 H Burpee dla Maćka Beifusa",
+                date: "5-6.12.2025",
                 raised: "43 tyś+ zł",
+                description: "Celem było wykonanie 12 tys powtórzeń. Niestety z przyczyn zdrowotnych zmuszony byłem przerwać w 21 godzinie kończąc na 8040 powtórzeń.",
+                location: "Strength & Conditioning Performance",
                 img: charity5,
                 delay: 0.1,
               },
               {
-                title: "10.294 Burpee w 24h",
-                date: "05.12.2022",
+                title: "24 H Burpee by wesprzeć Maję",
+                date: "3-4.12.2022",
                 raised: "20 tyś+ zł",
+                description: "Celem było 10 tys powtórzeń. Zakończone na 10 tys 294.",
+                location: "Strength & Conditioning Performance",
+                url: "https://facebook.com/events/s/24-h-burpe-by-wesprzec-maje/594974192409892/",
                 img: charity4,
                 delay: 0.2,
               },
               {
-                title: "6.061 Burpee w 12h",
-                date: "07.12.2021",
+                title: "12 h Burpee dla Marysi",
+                date: "7.12.2021",
                 raised: "5.8 tyś+ zł",
+                description: "Nieoficjalny Rekord Guinnessa: 6061 powtórzeń.",
+                location: "Strength & Conditioning Performance",
+                url: "https://facebook.com/events/s/12-h-burpee-dla-marysi/838462000179050/",
                 img: charity3,
                 delay: 0.3,
               },
               {
-                title: "4.001 Burpee",
-                date: "08.03.2021",
+                title: "4000 Burpee dla Bartka",
+                date: "8.03.2021",
                 raised: "4 tyś+ zł",
+                description: "Czas: 7 h 56 min.",
+                location: "Strength & Conditioning Performance",
+                url: "https://facebook.com/events/s/4-000-burpee-dla-bartka/3457811807776608/",
                 img: charity2,
                 delay: 0.4,
               },
               {
-                title: "3.000 Burpee",
+                title: "3000 Burpee dla Asi",
                 date: "19.07.2020",
                 raised: "2 tyś+ zł",
+                description: "Czas: 5 h 50 min.",
+                location: "Strength & Conditioning Performance",
+                url: "https://facebook.com/events/s/3324709981087919/",
                 img: charity1,
                 delay: 0.5,
               },
@@ -314,16 +328,31 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80" />
                 <div className="absolute bottom-0 left-0 p-8 w-full">
                   <p className="text-primary font-bold text-xs uppercase tracking-widest mb-2">
-                    {challenge.date}
+                    {challenge.date} • {challenge.location}
                   </p>
                   <h3 className="text-2xl font-display font-bold text-white uppercase mb-2">
                     {challenge.title}
                   </h3>
-                  <div className="flex items-center gap-2">
-                    <Heart className="w-4 h-4 text-primary fill-primary" />
-                    <span className="text-white font-bold">
-                      Zebrane: {challenge.raised}
-                    </span>
+                  <p className="text-gray-300 text-sm mb-4 line-clamp-3 group-hover:line-clamp-none transition-all">
+                    {challenge.description}
+                  </p>
+                  <div className="flex flex-wrap items-center justify-between gap-4 mt-auto">
+                    <div className="flex items-center gap-2">
+                      <Heart className="w-4 h-4 text-primary fill-primary" />
+                      <span className="text-white font-bold">
+                        Zebrane: {challenge.raised}
+                      </span>
+                    </div>
+                    {challenge.url && (
+                      <a
+                        href={challenge.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs uppercase font-bold text-primary hover:text-white transition-colors border-b border-primary/30"
+                      >
+                        Zobacz wydarzenie
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -478,6 +507,22 @@ export default function Home() {
               </p>
 
               <div className="space-y-4">
+                <div className="p-6 border border-white/5 bg-white/5 space-y-4">
+                  <h4 className="text-white font-display font-bold uppercase tracking-wider border-b border-primary/30 pb-2">Lokalizacje treningów</h4>
+                  <div className="space-y-4">
+                    <div>
+                      <p className="text-primary font-bold text-sm uppercase">Tarnogaj - Treningi Personalne</p>
+                      <p className="text-gray-300">Strength & Conditioning Performance</p>
+                      <p className="text-gray-400 text-sm italic">Międzyleska 4, 50-514 Wrocław</p>
+                    </div>
+                    <div>
+                      <p className="text-primary font-bold text-sm uppercase">Psie Pole - Zajęcia Grupowe</p>
+                      <p className="text-gray-300">CrossGym</p>
+                      <p className="text-gray-400 text-sm italic">Kiełczowska 177, 51-315 Wrocław</p>
+                    </div>
+                  </div>
+                </div>
+
                 <a
                   href="https://www.instagram.com/michalzwolak87/"
                   target="_blank"
@@ -489,16 +534,6 @@ export default function Home() {
                     Skontaktuj się na Instagram
                   </span>
                 </a>
-                <div className="flex gap-4 mt-8">
-                  <a
-                    href="https://www.instagram.com/michalzwolak87/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 bg-background border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all"
-                  >
-                    <Instagram size={20} />
-                  </a>
-                </div>
               </div>
             </div>
 
