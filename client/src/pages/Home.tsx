@@ -30,6 +30,21 @@ import charity2 from "../assets/Michal-charity-2.jpg";
 import charity3 from "../assets/Michal-charity-3.jpg";
 import charity4 from "../assets/Michal-charity-4.jpg";
 import charity5 from "../assets/Michal-charity-5.jpg";
+import rower1 from "../assets/Michal-Zwolak-rower-1.jpg";
+import rower2 from "../assets/Michal-Zwolak-rower-2.jpg";
+import rower3 from "../assets/Michal-Zwolak-rower-3.jpg";
+import ultra1 from "../assets/Michal-Zwolak-ultra-1.jpg";
+import ultra2 from "../assets/Michal-Zwolak-ultra-2.jpg";
+import maraton1 from "../assets/Michal-Zwolak-maraton-1.jpg";
+import maraton2 from "../assets/Michal-Zwolak-maraton-2.jpg";
+import maraton3 from "../assets/Michal-Zwolak-maraton-3.jpg";
+import maraton4 from "../assets/Michal-Zwolak-maraton-4.jpg";
+import maraton5 from "../assets/Michal-Zwolak-maraton-5.jpg";
+import maraton6 from "../assets/Michal-Zwolak-maraton-6.jpg";
+import maraton7 from "../assets/Michal-Zwolak-maraton-7.jpg";
+import polmaraton1 from "../assets/Michal-Zwolak-polmaraton-1.jpg";
+import polmaraton2 from "../assets/Michal-Zwolak-polmaraton-2.jpg";
+import kettle from "../assets/Michal-Zwolak-kettle.jpg";
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -57,7 +72,7 @@ export default function Home() {
   const stats = [
     { label: "Wykonanych Burpees", value: 31396, suffix: "" },
     { label: "Bieg Ultra (km)", value: 641, suffix: " km" },
-    { label: "Rowerem", value: 500, suffix: " km" },
+    { label: "Rowerem", value: 1415, suffix: " km" },
     { label: "Zebrane środki", value: 75000, suffix: "+ zł" },
   ];
 
@@ -373,39 +388,351 @@ export default function Home() {
             alignment="center"
           />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <ChallengeCard
-              title="Maraton Poznań"
-              stats="42.195 km"
-              description="Klasyczny dystans maratoński. Test szybkości i wytrzymałości na ulicach Poznania."
-              icon={Trophy}
-              status="Completed"
-              delay={0.1}
-            />
-            <ChallengeCard
-              title="Maraton Warszawa"
-              stats="+10kg Kamizelka"
-              description="Maraton przebiegnięty z dodatkowym obciążeniem. Ekstremalny test siły nóg i woli walki."
-              icon={Dumbbell}
-              status="Completed"
-              delay={0.2}
-            />
-            <ChallengeCard
-              title="Półmaraton Wrocław"
-              stats="+20kg Kamizelka"
-              description="Podwójne obciążenie na dystansie 21km. Każdy krok to walka z grawitacją."
-              icon={Dumbbell}
-              status="Completed"
-              delay={0.3}
-            />
-            <ChallengeCard
-              title="Ultramaraton Gdańsk"
-              stats="92 km"
-              description="Ekstremalny dystans ultra. Ponad dwa klasyczne maratony jeden po drugim."
-              icon={Mountain}
-              status="Completed"
-              delay={0.4}
-            />
+          {/* ROWEROWE */}
+          <div className="mb-20">
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-primary/50" />
+              <h3 className="text-2xl font-display font-bold text-primary uppercase tracking-wider">
+                Wyzwania Rowerowe
+              </h3>
+              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-primary/50" />
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              {[
+                {
+                  title: "Wrocław - Kołobrzeg vol 2",
+                  stats: "428 km",
+                  description: "Na strzałę, bez snu. Czas z przerwami: 24,5 h.",
+                  icon: Bike,
+                  date: "23.08.2025",
+                  img: rower1,
+                  delay: 0.1,
+                },
+                {
+                  title: "Pomorska 500",
+                  stats: "500 km",
+                  description: "Jeden z najtrudniejszych ultramaratonów rowerowych w Polsce. Czas: 43 h 50 min.",
+                  icon: Bike,
+                  date: "10.06.2023",
+                  img: rower2,
+                  delay: 0.2,
+                },
+                {
+                  title: "Wrocław - Kołobrzeg vol 1",
+                  stats: "487 km w 3 dni",
+                  description: "Pierwsza jazda do Kołobrzegu. Ze snem po drodze.",
+                  icon: Bike,
+                  date: "2022",
+                  img: rower3,
+                  delay: 0.3,
+                },
+              ].map((challenge, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: challenge.delay * 0.1 }}
+                  className="group relative bg-card border border-white/10 hover:border-primary/30 transition-all overflow-hidden"
+                >
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500">
+                    <img
+                      src={challenge.img}
+                      alt={challenge.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="relative p-8">
+                    <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                      <challenge.icon size={28} />
+                    </div>
+                    <p className="text-primary font-bold text-xs uppercase tracking-widest mb-2">
+                      {challenge.date}
+                    </p>
+                    <h3 className="text-xl font-display font-bold text-white mb-2 uppercase leading-tight group-hover:text-primary transition-colors">
+                      {challenge.title}
+                    </h3>
+                    <div className="text-2xl font-display font-bold text-white/90 mb-4">
+                      {challenge.stats}
+                    </div>
+                    <p className="text-gray-400 text-sm leading-relaxed min-h-[60px] mb-6">
+                      {challenge.description}
+                    </p>
+                    <div className="inline-flex px-3 py-1 rounded text-xs font-bold uppercase tracking-wider border bg-green-500/10 text-green-500 border-green-500/20">
+                      Zrealizowane
+                    </div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* ULTRA + KAMIZELKI */}
+          <div className="mb-20">
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-primary/50" />
+              <h3 className="text-2xl font-display font-bold text-primary uppercase tracking-wider">
+                Ultra & Biegi z Obciążeniem
+              </h3>
+              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-primary/50" />
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              {[
+                {
+                  title: "Garmin Ultra Race Radków",
+                  stats: "158 km",
+                  description: "Challenge w 3 dni. Suma przewyższeń: 5000 m. Czas: ok 25 h.",
+                  icon: Mountain,
+                  date: "12-14.09.2025",
+                  img: ultra2,
+                  delay: 0.1,
+                },
+                {
+                  title: "Garmin Ultra Race Gdańsk",
+                  stats: "84 km",
+                  description: "Pierwszy ultra. Suma przewyższeń: 1800 m.",
+                  icon: Mountain,
+                  date: "3.12.2023",
+                  img: ultra1,
+                  delay: 0.2,
+                },
+                {
+                  title: "Półmaraton Wrocław",
+                  stats: "+20kg Kamizelka",
+                  description: "Nocny półmaraton z podwójnym obciążeniem. Czas: 2 h 40 min.",
+                  icon: Dumbbell,
+                  date: "16.06.2024",
+                  img: polmaraton1,
+                  delay: 0.3,
+                },
+                {
+                  title: "Maraton Kraków",
+                  stats: "+10kg Kamizelka",
+                  description: "Maraton z dodatkowym obciążeniem. Czas: 5 h 17 min.",
+                  icon: Dumbbell,
+                  date: "14.04.2024",
+                  img: maraton2,
+                  delay: 0.4,
+                },
+              ].map((challenge, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: challenge.delay * 0.1 }}
+                  className="group relative bg-card border border-white/10 hover:border-primary/30 transition-all overflow-hidden"
+                >
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500">
+                    <img
+                      src={challenge.img}
+                      alt={challenge.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="relative p-8">
+                    <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                      <challenge.icon size={28} />
+                    </div>
+                    <p className="text-primary font-bold text-xs uppercase tracking-widest mb-2">
+                      {challenge.date}
+                    </p>
+                    <h3 className="text-xl font-display font-bold text-white mb-2 uppercase leading-tight group-hover:text-primary transition-colors">
+                      {challenge.title}
+                    </h3>
+                    <div className="text-2xl font-display font-bold text-white/90 mb-4">
+                      {challenge.stats}
+                    </div>
+                    <p className="text-gray-400 text-sm leading-relaxed min-h-[60px] mb-6">
+                      {challenge.description}
+                    </p>
+                    <div className="inline-flex px-3 py-1 rounded text-xs font-bold uppercase tracking-wider border bg-green-500/10 text-green-500 border-green-500/20">
+                      Zrealizowane
+                    </div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* MARATONY I PÓŁMARATONY */}
+          <div className="mb-20">
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-primary/50" />
+              <h3 className="text-2xl font-display font-bold text-primary uppercase tracking-wider">
+                Maratony & Półmaratony
+              </h3>
+              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-primary/50" />
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              {[
+                {
+                  title: "7. Maraton - Poznań",
+                  stats: "3 h 45 min",
+                  description: "Najlepszy czas maratoński. Ciągły progres.",
+                  icon: Trophy,
+                  date: "12.10.2025",
+                  img: maraton7,
+                  delay: 0.1,
+                },
+                {
+                  title: "6. Maraton - Bydgoszcz",
+                  stats: "4 h 00 min",
+                  description: "Nocny maraton. Test wytrzymałości mentalnej.",
+                  icon: Trophy,
+                  date: "15.06.2025",
+                  img: maraton6,
+                  delay: 0.2,
+                },
+                {
+                  title: "5. Maraton - Gdańsk",
+                  stats: "4 h 03 min",
+                  description: "Poniżej 4 godzin coraz bliżej.",
+                  icon: Trophy,
+                  date: "6.04.2025",
+                  img: maraton5,
+                  delay: 0.3,
+                },
+                {
+                  title: "4. Maraton - Rzym",
+                  stats: "4 h 11 min",
+                  description: "Maratoński bieg przez wieczne miasto.",
+                  icon: Trophy,
+                  date: "16.03.2025",
+                  img: maraton4,
+                  delay: 0.4,
+                },
+                {
+                  title: "3. Maraton - Poznań",
+                  stats: "4 h 21 min",
+                  description: "Kolejny maraton, kolejny progres.",
+                  icon: Trophy,
+                  date: "14.10.2024",
+                  img: maraton3,
+                  delay: 0.5,
+                },
+                {
+                  title: "Półmaraton Poznań",
+                  stats: "2 h 16 min",
+                  description: "Szybki półmaraton w Poznaniu.",
+                  icon: Trophy,
+                  date: "13.04.2025",
+                  img: polmaraton2,
+                  delay: 0.6,
+                },
+                {
+                  title: "1. Maraton - Poznań",
+                  stats: "4 h 28 min",
+                  description: "Debiut maratoński. Start wielkiej przygody.",
+                  icon: Trophy,
+                  date: "22.10.2023",
+                  img: maraton1,
+                  delay: 0.7,
+                },
+              ].map((challenge, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: challenge.delay * 0.1 }}
+                  className="group relative bg-card border border-white/10 hover:border-primary/30 transition-all overflow-hidden"
+                >
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500">
+                    <img
+                      src={challenge.img}
+                      alt={challenge.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="relative p-8">
+                    <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                      <challenge.icon size={28} />
+                    </div>
+                    <p className="text-primary font-bold text-xs uppercase tracking-widest mb-2">
+                      {challenge.date}
+                    </p>
+                    <h3 className="text-xl font-display font-bold text-white mb-2 uppercase leading-tight group-hover:text-primary transition-colors">
+                      {challenge.title}
+                    </h3>
+                    <div className="text-2xl font-display font-bold text-white/90 mb-4">
+                      {challenge.stats}
+                    </div>
+                    <p className="text-gray-400 text-sm leading-relaxed min-h-[60px] mb-6">
+                      {challenge.description}
+                    </p>
+                    <div className="inline-flex px-3 py-1 rounded text-xs font-bold uppercase tracking-wider border bg-green-500/10 text-green-500 border-green-500/20">
+                      Zrealizowane
+                    </div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* KETTLEBELL */}
+          <div className="mb-20">
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-primary/50" />
+              <h3 className="text-2xl font-display font-bold text-primary uppercase tracking-wider">
+                Siłowe
+              </h3>
+              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-primary/50" />
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              {[
+                {
+                  title: "Warsaw Kettlebell Clash",
+                  stats: "Zawody",
+                  description: "Sprawdzenie siły w zawodach kettlebell.",
+                  icon: Dumbbell,
+                  date: "7.09.2025",
+                  img: kettle,
+                  delay: 0.1,
+                },
+              ].map((challenge, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: challenge.delay * 0.1 }}
+                  className="group relative bg-card border border-white/10 hover:border-primary/30 transition-all overflow-hidden"
+                >
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500">
+                    <img
+                      src={challenge.img}
+                      alt={challenge.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="relative p-8">
+                    <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                      <challenge.icon size={28} />
+                    </div>
+                    <p className="text-primary font-bold text-xs uppercase tracking-widest mb-2">
+                      {challenge.date}
+                    </p>
+                    <h3 className="text-xl font-display font-bold text-white mb-2 uppercase leading-tight group-hover:text-primary transition-colors">
+                      {challenge.title}
+                    </h3>
+                    <div className="text-2xl font-display font-bold text-white/90 mb-4">
+                      {challenge.stats}
+                    </div>
+                    <p className="text-gray-400 text-sm leading-relaxed min-h-[60px] mb-6">
+                      {challenge.description}
+                    </p>
+                    <div className="inline-flex px-3 py-1 rounded text-xs font-bold uppercase tracking-wider border bg-green-500/10 text-green-500 border-green-500/20">
+                      Zrealizowane
+                    </div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           <motion.div
@@ -422,16 +749,15 @@ export default function Home() {
                 Granice są po to, by je przesuwać. Kolejny projekt jest już w
                 fazie planowania. Chcesz stać się częścią tej historii?
               </p>
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("contact")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="px-8 py-4 bg-primary text-white font-bold uppercase tracking-wider hover:bg-red-600 transition-all"
+              <a
+                href="https://www.instagram.com/michalzwolak87/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-wider hover:bg-white/5 transition-all text-center flex items-center justify-center"
+                data-testid="link-instagram-hero"
               >
                 Bądź na bieżąco
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>

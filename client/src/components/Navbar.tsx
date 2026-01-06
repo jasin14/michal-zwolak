@@ -18,7 +18,7 @@ export function Navbar() {
   const navLinks = [
     { name: "O mnie", href: "#about" },
     { name: "Wyzwania", href: "#challenges" },
-    { name: "Wsparcie", href: "#support" },
+    { name: "Współpraca", href: "#support" },
     { name: "Kontakt", href: "#contact" },
   ];
 
