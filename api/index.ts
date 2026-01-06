@@ -33,7 +33,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       
       try {
         await resend.emails.send({
-          from: 'Kontakt - Michał Zwolak <onboarding@resend.dev>',
+          from: 'Formularz Kontaktowy <kontakt@michalzwolak.pl>',
           to: 'michalzwolak87@gmail.com',
           subject: `Nowa wiadomość od: ${input.name}`,
           text: `
