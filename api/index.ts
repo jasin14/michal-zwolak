@@ -1,9 +1,19 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { api } from '../shared/routes';
 import { z } from 'zod';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgoowajo';
 const DAILY_LIMIT = 10;
+
+// Contact form validation schema (duplicated from shared/schema.ts for Vercel compatibility)
+const contactSchema = z.object({
+  name: z.string().min(1, "Imię i nazwisko jest wymagane"),
+  email: z.string().email("Nieprawidłowy adres email").optional().or(z.literal("")),
+  phone: z.string().optional().or(z.literal("")),
+  message: z.string().min(1, "Wiadomość jest wymagana"),
+}).refine((data) => data.email || data.phone, {
+  message: "Email lub numer telefonu jest wymagany",
+  path: ["email"],
+});
 
 // Simple in-memory rate limiter (resets on cold start in serverless)
 // For production, consider using Upstash Redis for persistent rate limiting
@@ -44,7 +54,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Handle contact form submission
   if (req.url?.startsWith('/api/contact/submit') && req.method === 'POST') {
     try {
-      const input = api.contact.submit.input.parse(req.body);
+      const input = contactSchema.parse(req.body);
 
       // Check rate limit
       const rateLimit = checkRateLimit();
@@ -58,18 +68,26 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       // Send form data to Formspree
       try {
+        // Build payload - only include non-empty fields
+        const formData: Record<string, string> = {
+          name: input.name,
+          message: input.message,
+        };
+        
+        if (input.email) {
+          formData.email = input.email;
+        }
+        if (input.phone) {
+          formData.phone = input.phone;
+        }
+
         const formspreeResponse = await fetch(FORMSPREE_ENDPOINT, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
           },
-          body: JSON.stringify({
-            name: input.name,
-            email: input.email || 'Nie podano',
-            phone: input.phone || 'Nie podano',
-            message: input.message,
-          }),
+          body: JSON.stringify(formData),
         });
 
         if (!formspreeResponse.ok) {

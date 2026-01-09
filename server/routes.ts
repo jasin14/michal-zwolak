@@ -46,18 +46,26 @@ export async function registerRoutes(
 
       // Send form data to Formspree
       try {
+        // Build payload - only include non-empty fields
+        const formData: Record<string, string> = {
+          name: input.name,
+          message: input.message,
+        };
+        
+        if (input.email) {
+          formData.email = input.email;
+        }
+        if (input.phone) {
+          formData.phone = input.phone;
+        }
+
         const formspreeResponse = await fetch(FORMSPREE_ENDPOINT, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
           },
-          body: JSON.stringify({
-            name: input.name,
-            email: input.email || 'Nie podano',
-            phone: input.phone || 'Nie podano',
-            message: input.message,
-          }),
+          body: JSON.stringify(formData),
         });
 
         if (!formspreeResponse.ok) {
