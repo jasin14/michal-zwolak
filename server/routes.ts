@@ -2,7 +2,29 @@ import type { Express } from "express";
 import type { Server } from "http";
 import { api } from "@shared/routes";
 import { z } from "zod";
-import { Resend } from "resend";
+
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgoowajo';
+const DAILY_LIMIT = 10;
+
+// Simple in-memory rate limiter
+const dailySubmissions: { count: number; date: string } = { count: 0, date: '' };
+
+function checkRateLimit(): { allowed: boolean; remaining: number } {
+  const today = new Date().toISOString().split('T')[0];
+  
+  // Reset counter if it's a new day
+  if (dailySubmissions.date !== today) {
+    dailySubmissions.count = 0;
+    dailySubmissions.date = today;
+  }
+  
+  if (dailySubmissions.count >= DAILY_LIMIT) {
+    return { allowed: false, remaining: 0 };
+  }
+  
+  dailySubmissions.count++;
+  return { allowed: true, remaining: DAILY_LIMIT - dailySubmissions.count };
+}
 
 export async function registerRoutes(
   httpServer: Server,
@@ -12,43 +34,47 @@ export async function registerRoutes(
     try {
       const input = api.contact.submit.input.parse(req.body);
 
-      // Send email notification using Resend
-      if (!process.env.RESEND_API_KEY) {
-        console.error('RESEND_API_KEY is not set');
-        return res.status(500).json({ message: 'Email service not configured' });
+      // Check rate limit
+      const rateLimit = checkRateLimit();
+      if (!rateLimit.allowed) {
+        console.warn('Daily submission limit reached');
+        return res.status(429).json({ 
+          message: 'Przekroczono dzienny limit wiadomości. Spróbuj ponownie jutro.',
+          remaining: 0
+        });
       }
 
-      const resend = new Resend(process.env.RESEND_API_KEY);
-      
+      // Send form data to Formspree
       try {
-        await resend.emails.send({
-          from: 'Kontakt - Michał Zwolak <onboarding@resend.dev>',
-          to: 'michalzwolak87@gmail.com',
-          subject: `Nowa wiadomość od: ${input.name}`,
-          text: `
-Imię i Nazwisko: ${input.name}
-Email: ${input.email || 'Nie podano'}
-Telefon: ${input.phone || 'Nie podano'}
-
-Wiadomość:
-${input.message}
-          `,
-          html: `
-<h2>Nowa wiadomość z formularza kontaktowego</h2>
-<p><strong>Imię i Nazwisko:</strong> ${input.name}</p>
-<p><strong>Email:</strong> ${input.email || 'Nie podano'}</p>
-<p><strong>Telefon:</strong> ${input.phone || 'Nie podano'}</p>
-<p><strong>Wiadomość:</strong></p>
-<p>${input.message.replace(/\n/g, '<br>')}</p>
-          `,
+        const formspreeResponse = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            name: input.name,
+            email: input.email || 'Nie podano',
+            phone: input.phone || 'Nie podano',
+            message: input.message,
+          }),
         });
+
+        if (!formspreeResponse.ok) {
+          const errorData = await formspreeResponse.json().catch(() => ({}));
+          console.error('Formspree error:', errorData);
+          return res.status(500).json({ 
+            message: 'Nie udało się wysłać wiadomości',
+            error: errorData.error || 'Unknown error'
+          });
+        }
 
         res.status(201).json({ 
           success: true,
           message: 'Wiadomość została wysłana'
         });
       } catch (emailError) {
-        console.error('Failed to send email via Resend:', emailError);
+        console.error('Failed to send form via Formspree:', emailError);
         res.status(500).json({ message: 'Nie udało się wysłać wiadomości' });
       }
     } catch (err) {
